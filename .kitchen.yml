@@ -1,4 +1,3 @@
----
 driver:
   name: vagrant
 
@@ -6,11 +5,11 @@ provisioner:
   name: chef_solo
 
 platforms:
-  - name: ubuntu-12.04
   - name: centos-6.4
 
 suites:
   - name: default
     run_list:
       - recipe[df_ant::default]
+      
     attributes:
