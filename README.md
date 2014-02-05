@@ -12,6 +12,8 @@ dev/server for CentOS and a base recipe
 
 * default ['df_ant']['url']: the site where the rpm can be downloaded for installation.
 
+* case node ['platform_family']: this is a case statement written in to account for the differences altering paths in ubuntu vs. centos. This is not pretty, but effectively serves its purpose.
+
 # Recipes
 this will require a base run of Java before ant will work
 
