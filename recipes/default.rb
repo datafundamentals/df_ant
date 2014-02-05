@@ -9,12 +9,7 @@
 
 # general case statements for the path editing
 
-# case node['platform_family']
-# when "debian", "ubuntu"
-# 	node.default['path_file'] = "/home/vagrant/.profile"
-# when "rhel", "centos"
-# 	node.default['path_file'] = "/home/vagrant/.bash_profile"
-# end
+
 # standard setup of the and cookbook is as follows
 # make sure that java is downloaded and installed before an ant install
 
@@ -39,14 +34,7 @@ end
 
 # make sure your JAVA_HOME and ANT_HOME is properly set and that ANT_HOME is in your path
 include_recipe "df_ant::set_ant_home"
-# directory "/etc/profile.d" do 
-# 	mode "0755" 
-# end
-# file "/etc/profile.d/ant.sh" do 
-# 	content "export ANT_HOME=/home/vagrant"
-# 	owner "root" 
-# 	action :create
-# end
+
 file node['path_file'] do 
 	new_lines = "export PATH=$PATH:$ANT_HOME/bin"
 	only_if do
