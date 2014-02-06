@@ -17,8 +17,8 @@
 include_recipe "java::default"
 
 # download an ant binary
-remote_file "/home/vagrant/apache-ant-1.9.3-bin.tar.gz" do 
-	source node['df_ant']['url']
+remote_file "/home/vagrant/apache-ant-1.9.3-bin.tar.bz2" do 
+	source node['df_ant']['source']
 	owner "root" 
 	group "root"
 	mode "0755" 
@@ -28,13 +28,15 @@ end
 # unzip said binary
 execute "unzip_file" do 
 	cwd "/home/vagrant" 
-	command "tar -xzvf apache-ant-1.9.3-bin.tar.gz" 
+	command "tar -xzvf apache-ant-1.9.3-bin.tar.bz2" 
 	action :run
 end
 
 # make sure your JAVA_HOME and ANT_HOME is properly set and that ANT_HOME is in your path
 include_recipe "df_ant::set_ant_home"
 
+# setting ant path
+# node['path_file'] is in the attributes
 file node['path_file'] do 
 	new_lines = "export PATH=$PATH:$ANT_HOME/bin"
 	only_if do
