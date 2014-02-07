@@ -17,7 +17,7 @@
 include_recipe "java::default"
 
 # download an ant binary
-remote_file "/home/vagrant/apache-ant-1.9.3-bin.tar.bz2" do 
+remote_file "/home/vagrant/apache-ant-1.9.3-bin.tar.gz" do 
 	source node['df_ant']['source']
 	owner "root" 
 	group "root"
@@ -28,7 +28,7 @@ end
 # unzip said binary
 execute "unzip_file" do 
 	cwd "/home/vagrant" 
-	command "tar -xzvf apache-ant-1.9.3-bin.tar.bz2" 
+	command "tar -xzvf apache-ant-1.9.3-bin.tar.gz" 
 	action :run
 end
 
