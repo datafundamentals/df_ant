@@ -14,10 +14,16 @@
 # make sure that java is downloaded and installed before an ant install
 
 # this might need the openjdk over oracle for ease of use
-include_recipe "java::default"
+include_recipe "df_java::default"
 
+directory "/usr/local/ant" do 
+	user "root"
+	mode "0755"
+	recursive true
+	action :create
+end
 # download an ant binary
-remote_file "/home/vagrant/apache-ant-1.9.3-bin.tar.gz" do 
+remote_file "/usr/local/ant/apache-ant-1.9.3-bin.tar.gz" do 
 	source node['df_ant']['source']
 	owner "root" 
 	group "root"
@@ -27,7 +33,7 @@ end
 
 # unzip said binary
 execute "unzip_file" do 
-	cwd "/home/vagrant" 
+	cwd "/usr/local/ant" 
 	command "tar -xzvf apache-ant-1.9.3-bin.tar.gz" 
 	action :run
 end
