@@ -7,6 +7,8 @@ if you are already using berkshelf and don't have a recipe this should automatic
 
 key points that you might want to change are both the installation location for the inital remote_file resource, which will require you to change the path location in the set_ant_home recipe, and will affect the path for the other resources
 
+**NOTE** You should pay attention to the .kitchen.yml file in the synced folders section. We have it set up to pull from local binaries on the machine. If you try to run it out of the box it will fail.
+
 # Attributes
 dev/server for CentOS and a base recipe
 
