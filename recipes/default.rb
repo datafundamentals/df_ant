@@ -41,18 +41,4 @@ end
 # make sure your JAVA_HOME and ANT_HOME is properly set and that ANT_HOME is in your path
 include_recipe "df_ant::set_ant_home"
 
-# setting ant path
-# node['path_file'] is in the attributes
-file node['path_file'] do 
-	new_lines = "export PATH=$PATH:$ANT_HOME/bin"
-	only_if do
-		current_content = File.read("#{node['path_file']}")
-		current_content.index("ANT_HOME").nil?
-	end
-
-	current_content = File.read("#{node['path_file']}")
-	new_content = current_content + new_lines
-	content "#{new_content}\n"
-end
-
 # get the library dependencies for ant
