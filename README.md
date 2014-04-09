@@ -1,7 +1,13 @@
 # df_ant cookbook
 this is used to setup and install the cookbook to properly work with everybody
 # Requirements
+
+* NOTE1: This cookbook (along with almost all dataFundamentals cookbooks) requires that you have local binaries to install other programs. If you are looking to use these as is, download the df_base cookbook to pull all the repositories. If you are looking to only pull certain binaries, please select the install flavor you would like in the attributes. The only one currently available is for Maven
+*NOTE2: Please look at the .kitchen.yml file and adjust the synced folder from what we have run or it won't work
 it must be able to work on a CentOS server 6.4 or higher. compatibility for secondary systems is an afterthought.
+
+This is designed to work using a local binary. the one for this cookbook is located at docs.datafundamentals.com/lib
+
 # Usage
 if you are already using berkshelf and don't have a recipe this should automatically pull down and install the Java. otherwise you will have to download the java cookbook, or install it manually (but why would you do that?). in the ant documentation it says it was designed to work best with openJDK and not oracle. I have installed oracle and it seems to work fine, but no guarantees.
 
@@ -25,4 +31,4 @@ this will require a base run of Java before ant will work
 
 # Author
 
-Author:: Jeff Carapetyan (<YOUR_EMAIL>)
+Author:: Jeff Carapetyan (<jeff@datafundamentals.com>)
