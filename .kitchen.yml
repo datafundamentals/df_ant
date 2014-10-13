@@ -1,12 +1,11 @@
 driver:
-  synced_folders: [[[["/vagrant/binaries", "/vagrant/binaries"]]
+  synced_folders: [["/vagrant/binaries", "/vagrant/binaries"]]
   name: vagrant
 
 provisioner:
   name: chef_solo
 
 platforms:
-  - name: centos-6.4
   - name: ubuntu-12.04
 
 suites:
